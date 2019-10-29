@@ -6,7 +6,7 @@ let configs = {
   "development": {
     "username": "root",
     "password": `${process.env.DB_PASSWORD}`,
-    "database": "recipe_db",
+    "database": "recipes_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
