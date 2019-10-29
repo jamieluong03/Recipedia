@@ -126,7 +126,8 @@ module.exports = function(sequelize, DataTypes) {
     prep_instruction: {
       type: DataTypes.TEXT,
       allowNull: true,
-    }
-  });
+    }},
+    {timestamps: false
+    });
   return Recipe;
 };
