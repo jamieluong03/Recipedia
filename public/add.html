@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <style>
+        #addIngrBtn {
+            border: 0;
+        }
+
+        .fa-plus-circle {
+            margin-right: 5px;
+        }
+
+        #recipeForm {
+            width: 600px;
+        }
+    </style>
+  </head>
+  <body>
+  <section class="section" id="recipeForm">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="field">
+                    <label class="label">Recipe Name</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="What are we making?">
+                    </div>
+                  </div>
+                  
+                  <div class="field">
+                    <label class="label">Show-off your dish!</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="Place image url here">
+                    </div>
+                  </div>
+                
+                  <div class="field">
+                    <label class="label">Difficulty Level</label>
+                    <div class="control">
+                      <div class="select">
+                        <select>
+                          <option>Easy</option>
+                          <option>Intermediate</option>
+                          <option>Hard</option>
+                          <option>Expert</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Category</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="eg. Italian">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Preparation Time</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="Text input">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Number of Servings</label>
+                    <div class="control">
+                      <div class="select">
+                        <select>
+                          <option>1-2</option>
+                          <option>3-4</option>
+                          <option>5-6</option>
+                          <option>7-8</option>
+                          <option>9-10</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Ingredients</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="One Ingredient Per Line">
+                    </div>
+                    <button class="button" id="addIngrBtn"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
+                  </div>
+                  
+                  <div class="field">
+                    <label class="label">Preparation Instructions</label>
+                    <div class="control">
+                      <textarea class="textarea" placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-link">Submit</button>
+                    </div>
+                  </div>
+            </div>
+          </div>
+    </div>
+  </section>
+  </body>
+</html>
