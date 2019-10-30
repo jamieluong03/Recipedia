@@ -6,12 +6,16 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           len: [1]
         }
-      },
-      recipe_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
       }},
       {timestamps: false
       });
+
+      Ingredients.associate = function(models) {
+          Ingredients.belongsTo(model.Recipe, {
+              foriegnKey: {
+                  allowNull: false
+              }
+          });
+      };
     return Ingredients;
   };
