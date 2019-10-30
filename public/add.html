@@ -46,21 +46,21 @@
                 <div class="field">
                     <label class="label">Recipe Name</label>
                     <div class="control">
-                      <input class="input" type="text" placeholder="What are we making?">
+                      <input class="input recipeName" type="text" placeholder="What are we making?">
                     </div>
                   </div>
                   
                   <div class="field">
                     <label class="label">Show-off your dish!</label>
                     <div class="control">
-                      <input class="input" type="text" placeholder="Place image url here">
+                      <input class="input dishImage" type="text" placeholder="Place image url here">
                     </div>
                   </div>
                 
                   <div class="field">
                     <label class="label">Difficulty Level</label>
                     <div class="control">
-                      <div class="select">
+                      <div class="select skill">
                         <select>
                           <option>Easy</option>
                           <option>Intermediate</option>
@@ -74,21 +74,21 @@
                   <div class="field">
                     <label class="label">Category</label>
                     <div class="control">
-                      <input class="input" type="text" placeholder="eg. Italian">
+                      <input class="input foodType" type="text" placeholder="eg. Italian">
                     </div>
                   </div>
 
                   <div class="field">
                     <label class="label">Preparation Time</label>
                     <div class="control">
-                      <input class="input" type="text" placeholder="Text input">
+                      <input class="input prepTime" type="text" placeholder="Text input">
                     </div>
                   </div>
 
                   <div class="field">
                     <label class="label">Number of Servings</label>
                     <div class="control">
-                      <div class="select">
+                      <div class="select serving">
                         <select>
                           <option>1-2</option>
                           <option>3-4</option>
@@ -106,23 +106,29 @@
                       Ingredient 1 1<br><input type="text" name="myInputs[]">
                  </div>
                  <input type="button" value="Add another Ingredient" onClick="addInput('dynamicInput');">
+                    <div class="control">
+                      <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
+                    </div>
+                    <button class="button" id="addIngrBtn"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
                   </div>
                   
                   <div class="field">
                     <label class="label">Preparation Instructions</label>
                     <div class="control">
-                      <textarea class="textarea" placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
+                      <textarea class="textarea prepInstruc" placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
                     </div>
                   </div>
                   
                   <div class="field is-grouped">
                     <div class="control">
-                      <button class="button is-link">Submit</button>
+                      <button class="button is-link submit">Submit</button>
                     </div>
                   </div>
             </div>
           </div>
     </div>
   </section>
+
+  <script href="./js/add.js"></script>
   </body>
 </html>
