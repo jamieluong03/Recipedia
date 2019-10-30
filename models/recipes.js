@@ -45,5 +45,11 @@ module.exports = function(sequelize, DataTypes) {
     }},
     {timestamps: false
     });
+
+    Recipe.associate = function(models) {
+      Recipe.hasMany(models.Ingredients, {
+        onDelete: 'cascade'
+      });
+    };
   return Recipe;
 };
