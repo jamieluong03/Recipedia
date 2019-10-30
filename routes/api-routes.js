@@ -3,6 +3,21 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+
+// add recipe:
+// "api/add"
+
+
+// view all recipe:
+// "api/all"
+
+
+// view specific cuisine:
+// "api/:food_type"
+
+
+
+
   // app.post("/api/signup", function(req, res) {
   //   db.User.create({
   //     email: req.body.email,
