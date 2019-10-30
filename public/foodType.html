@@ -13,9 +13,9 @@
 
 <body>
 <section class="section">
+  <div class="container">
 
 <!-- nav bar -->
-  <div class="container">
     <nav class="level">
       <p class="level-item has-text-centered">
         <a class="link is-info">Home</a>
@@ -35,10 +35,9 @@
     </nav>
 
 <!-- search bar -->
-<div class="container">
-
   <div class="columns">
-  <div class="column is-three-quarters" id="searchBar">
+
+  <div class="column is-two-fifths">
   <h1>What type of food would you like to search for? </h1>
   <div class="field">
     <div class="control">
@@ -46,16 +45,43 @@
     </div>
   </div>
   <button class="button is-link is-light">Search</button>
-  </div>
-
-
-  </div>
-
-  <br>
+  
   <!-- show cuisine here -->
-  <h2 class="cuisine"></h2>
+  <div class="cuisine"></div>
+  
 
-  <div class="box">
+  <!-- show table for list of foods -->
+  <table class="table is hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>Recipes Available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+ 
+  <div class="column is-three-fifths">
+    <div class="box" id="recipeDiv">
+      <h1 class="title" id="name">Breakfast</h1>
+      <h3 class="subtitle" id="difficulty">Easy</h3>
+      <h3 class="subtitle" id="type">American</h3>
+      <h3 class="subtitle" id="prepTime">10 mins</h3>
+      <h3 class="subtitle" id="servings">2</h3>
+      <h5 class="subtitle" id="ingredients">Eggs, Bacon, Sausage</h5>
+    </div>
+  </div>
+
+</div>
+</section>
+
+  <!-- <div class="box">
     <article class="media">
       <div class="media-left">
         <figure class="image is-128x128">
@@ -72,11 +98,12 @@
   
       </div>
     </article>
-  </div>
-</div>
+  </div> -->
+
 
   <script type="text/javascript" src="js/foodType.js"></script>
-</div>
+
+
 </body>
 
 </html>
