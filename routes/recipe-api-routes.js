@@ -7,24 +7,33 @@ module.exports = function(app) {
   //
   // get /api/recipes
   //      return all recipes
-  app.get("/api/recipes", function(req, res) {
-    db.Recipe.findAll({
-      include: [db.Ingredients]
-    }).then(function(dbRecipe) {
-      res.json(dbRecipe);
-    });
-  });
-  // get /api/recipes?type=whatever
+  // app.get("/api/recipes", function(req, res) {
+  //   db.Recipe.findAll({
+  //     include: [db.Ingredients]
+  //   }).then(function(dbRecipe) {
+  //     res.json(dbRecipe);
+  //   });
+  // });
+  // // json.get /api/recipes?type=whatever
   //      return recipes of type
-  app.get("/api/recipes/food_type=?", function(req, res) {
-    db.Recipe.findAll({
-      where: {
-        food_type: req.body.food_type
-      },
-      include: [db.Ingredients]
-    }).then(function(dbRecipe) {
-      res.json(dbRecipe);
-    });
+  app.get("/api/recipes", function(req, res) {
+    if(Object.keys(req.query).length === 0) {
+      db.Recipe.findAll({
+          include: [db.Ingredients]
+        }).then(function(dbRecipe) {
+          res.json(dbRecipe);
+        });
+    } else {
+      let type = req.query.type;
+      db.Recipe.findAll({
+        where: {
+          food_type: type
+        },
+        include: [db.Ingredients]
+      }).then(function(dbRecipe) {
+        res.json(dbRecipe);
+      });        
+    }
   });
   // post /api/recipes
   //      make new recipe

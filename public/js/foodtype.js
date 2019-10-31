@@ -4,7 +4,6 @@ var userInput = $("#cuisineInput");
 var showCuisine = $(".menu-label");
 var menuList = $(".menu-list");
 
-
 var foodList;
 
 var searchCuisine = function() {
@@ -16,9 +15,11 @@ var searchCuisine = function() {
 };
 
 var renderTypes = function() {
+    $('ul').empty();
+
     showCuisine.text(foodList);
 
-    $.get("/api/recipes?food_type=?", foodList, function(data) {
+    $.get(`/api/recipes?type=${foodList}`, function(data) {
         for (var i=0; i<data.length; i++) {
             var newLi = $("<li>");
             var aTag = $("<a>");
