@@ -7,8 +7,22 @@
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<<<<<<< HEAD
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <style>
+=======
     <script type="text/javascript" src="js/add.js"></script>
     <style>
+>>>>>>> origin
         #addIngrBtn {
             border: 0;
         }
@@ -102,14 +116,12 @@
 
                   <div class="field">
                     <label class="label">Ingredients</label>
-                    <div id="dynamicInput">
-                      Ingredient 1 1<br><input type="text" name="myInputs[]">
-                 </div>
-                 <input type="button" value="Add another Ingredient" onClick="addInput('dynamicInput');">
-                    <div class="control">
-                      <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
-                    </div>
-                    <button class="button" id="addIngrBtn"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
+                    <div  id="ingredients">
+                      <div class="control" data-id="0">
+                        <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
+                      </div>
+                  </div>
+                    <button class="button" value="Add another text input" id="dynamicInput"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
                   </div>
                   
                   <div class="field">
@@ -129,6 +141,6 @@
     </div>
   </section>
 
-  <script href="./js/add.js"></script>
+  <script src="./js/add.js"></script>
   </body>
 </html>
