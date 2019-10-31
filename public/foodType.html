@@ -37,16 +37,16 @@
 <!-- search bar -->
 
   <div class="columns">
-
-  <div class="column is-two-fifths box">
+  
+  <div class="column is-two-fifths">
+    <div class="box">
   <h1>What type of food would you like to search for? </h1>
   <div class="field">
     <div class="control">
-      <input class="input is-hovered" type="text" placeholder="Cuisine" id="cuisineInput">
+      <input class="input is-hovered" type="text" placeholder="american, chinese, thai, etc." id="cuisineInput">
     </div>
   </div>
-  <button type="submit" class="button is-link is-light" id="searchBtn">Search</button>
-  
+  <button type="submit" class="button is-link is-light is-pulled-right" id="searchBtn">Search</button>
   <br><br>
 
   <aside class="menu">
@@ -58,15 +58,18 @@
     </ul>
   </aside>
   </div>
+</div>
+
  
   <div class="column is-three-fifths">
     <div id="recipeDiv">
-      <h1 class="title" id="name"></h1>
-      <h3 class="subtitle" id="difficulty"></h3>
-      <h3 class="subtitle" id="type"></h3>
-      <h3 class="subtitle" id="prepTime"></h3>
-      <h3 class="subtitle" id="servings"></h3>
-      <h5 class="subtitle" id="ingredients"></h5>
+      <p class="title" id="name"></p>
+      <p class="subtitle" id="difficulty"></p>
+      <p class="subtitle" id="type"></p>
+      <p class="subtitle" id="prepTime"></p>
+      <p class="subtitle" id="servings"></p>
+      <p class="subtitle" id="ingredients"></p>
+      <p class="subtitle" id="instructions"></p>
     </div>
   </div>
 

@@ -3,32 +3,59 @@ var searchBtn = $("#searchBtn");
 var userInput = $("#cuisineInput");
 var showCuisine = $(".menu-label");
 var menuList = $(".menu-list");
+var recipeName = $("#name");
+var difficulty = $("#difficulty");
+var type = $("#type");
+var prepTime = $("#prepTime");
+var servings = $("#servings");
+var ingredients = $("#ingredients");
+var instructions = $("#instructions");
 
-var foodList;
+var typeName;
 
 var searchCuisine = function() {
     var searchResult = userInput.val().trim();
-    foodList = searchResult
-    console.log(searchResult);
-    console.log(foodList);
+    typeName = searchResult
+    console.log(typeName);
     renderTypes();
 };
 
 var renderTypes = function() {
     $('ul').empty();
 
-    showCuisine.text(foodList);
+    showCuisine.text(typeName);
 
-    $.get(`/api/recipes?type=${foodList}`, function(data) {
+    $.get(`/api/recipes?type=${typeName}`, function(data) {
         for (var i=0; i<data.length; i++) {
-            var newLi = $("<li>");
+            var newLi = $("<li class='list-group-item'>");
             var aTag = $("<a>");
-            newLi.addClass("food");
+            newLi.attr("data-name", data[i].recipe_name);
             aTag.attr("id", "food-" + i);
             newLi.append(aTag);
             menuList.append(newLi);
 
             $("#food-" + i).append(data[i].recipe_name)
+        };
+    });
+};
+
+var renderRecipe = function() {
+    var selectedRecipe = $(this).attr("data-name");
+    console.log(selectedRecipe);
+
+    $("#recipeDiv").addClass("box");
+    $.get("/api/recipes", function(data) {
+
+        for (var i=0; i < data.length; i++) {
+            if (data[i].recipe_name === selectedRecipe) {
+                recipeName.text(data[i].recipe_name);
+                difficulty.text(data[i].recipe_difficulty);
+                type.text(data[i].food_type);
+                prepTime.text(data[i].prep_time);
+                servings.text(data[i].number_servings);
+                ingredients.text(data[i].Ingredients);
+                instructions.text(data[i].prep_instructions);
+            }
         }
     })
 }
@@ -48,46 +75,5 @@ var renderTypes = function() {
 //     console.log(response.hits[0].tags);
 
 
-//     $.get("/api/recipes?food_type=", function(data) {
-//         // append cuisine type to #cuisine
-//         $("#cuisine").append(req.body.food_type);
-
-//         // append every food image listed in api
-//         for (var i=0; i<data.length; i++) {
-            
-//             // add article
-//             var foodArticle = $("<article>");
-//             foodArticle.addClass("media");
-
-//             // add media
-//             var foodImgDiv = $("<div>");
-//             foodImgDiv.addClass("media-left");
-//             foodArticle.append(foodImgDiv);
-
-//             // add figure attributes
-//             var imgFigure = $("<figure>");
-//             imgFigure.addClass("image is-128x128");
-//             imgFigure.attr("id", "img-" + i);
-//             foodArticle.append(imgFigure);
-
-//             // add image
-//             var imgSrc = $("<img>");
-//             imgSrc.attr("src", `"${imgURL}"`);
-//             imgSrc.attr("alt", `"${response.hits[0].tags}"`);
-//             foodArticle.append(imgSrc);
-
-//             // add media content
-//             var foodContent = $("<div>");
-//             foodContent.addClass("media-content");
-//             foodArticle.append(foodContent);
-
-
-
-
-    
-//         }
-
-//     })
-// })
-
 searchBtn.on("click", searchCuisine);
+menuList.on("click", ".list-group-item", renderRecipe);

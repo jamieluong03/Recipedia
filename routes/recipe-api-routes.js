@@ -4,17 +4,7 @@ var db = require("../models");
 module.exports = function(app) {
 
   // Recipies routes
-  //
-  // get /api/recipes
-  //      return all recipes
-  // app.get("/api/recipes", function(req, res) {
-  //   db.Recipe.findAll({
-  //     include: [db.Ingredients]
-  //   }).then(function(dbRecipe) {
-  //     res.json(dbRecipe);
-  //   });
-  // });
-  // // json.get /api/recipes?type=whatever
+  // json.get /api/recipes?type=whatever
   //      return recipes of type
   app.get("/api/recipes", function(req, res) {
     if(Object.keys(req.query).length === 0) {
