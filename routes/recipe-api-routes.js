@@ -7,7 +7,7 @@ module.exports = function(app) {
   //
   // get /api/recipes
   //      return all recipes
-  app.get("/api.recipes", function(req, res) {
+  app.get("/api/recipes", function(req, res) {
     db.Recipe.findAll({
       include: [db.Ingredients]
     }).then(function(dbRecipe) {
@@ -16,7 +16,7 @@ module.exports = function(app) {
   });
   // get /api/recipes?type=whatever
   //      return recipes of type
-  app.get("/api.recipes?type=whatever", function(req, res) {
+  app.get("/api/recipes/food_type=?", function(req, res) {
     db.Recipe.findAll({
       where: {
         food_type: req.body.food_type
