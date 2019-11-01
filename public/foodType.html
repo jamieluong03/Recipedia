@@ -9,6 +9,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+      .is-info {
+          color: black;
+          font-size: 20px;
+      }
+        
+      .level {
+        background-color: white;
+        width: 100%;
+      } 
+  </style>
 </head>
 
 <body>
@@ -17,21 +28,17 @@
 
 <!-- nav bar -->
     <nav class="level">
+
+        <p class="level-item has-text-centered">
+          <img src="./image/title.png" alt="" style="height: 120px;">
+        </p>
       <p class="level-item has-text-centered">
-        <a class="link is-info">Home</a>
-      </p>
+        <a class="link is-info" href="/">Home</a>
+      </p>      
       <p class="level-item has-text-centered">
-        <a class="link is-info">View All Recipes</a>
+        <a class="link is-info" href="/add">Add A Recipe</a>
       </p>
-      <p class="level-item has-text-centered">
-        <img src="https://bulma.io/images/bulma-type.png" alt="" style="height: 30px;">
-      </p>
-      <p class="level-item has-text-centered">
-        <a class="link is-info">Add A Recipe</a>
-      </p>
-      <p class="level-item has-text-centered">
-        <a class="link is-info"></a>
-      </p>
+
     </nav>
 
 <!-- search bar -->
