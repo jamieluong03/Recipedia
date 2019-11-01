@@ -10,6 +10,7 @@ var prepTime = $("#prepTime");
 var servings = $("#servings");
 var ingredients = $("#ingredients");
 var instructions = $("#instructions");
+var ingredientsList = $(".ingredients-list")
 
 var typeName;
 
@@ -40,6 +41,14 @@ var renderTypes = function() {
 };
 
 var renderRecipe = function() {
+    recipeName.empty();
+    difficulty.empty();
+    type.empty();
+    prepTime.empty();
+    servings.empty();
+    ingredientsList.empty();
+    instructions.empty();
+
     var selectedRecipe = $(this).attr("data-name");
     console.log(selectedRecipe);
 
@@ -47,14 +56,24 @@ var renderRecipe = function() {
     $.get("/api/recipes", function(data) {
 
         for (var i=0; i < data.length; i++) {
-            if (data[i].recipe_name === selectedRecipe) {
-                recipeName.text(data[i].recipe_name);
-                difficulty.text(data[i].recipe_difficulty);
-                type.text(data[i].food_type);
-                prepTime.text(data[i].prep_time);
-                servings.text(data[i].number_servings);
-                ingredients.text(data[i].Ingredients);
-                instructions.text(data[i].prep_instructions);
+            var recipe = data[i];
+            if (recipe.recipe_name === selectedRecipe) {
+                recipeName.text(recipe.recipe_name);
+                difficulty.text(`Difficulty: ${recipe.recipe_difficulty}`);
+                type.text(`Type: ${recipe.food_type}`);
+                prepTime.text(`Prep Time: ${recipe.prep_time}`);
+                servings.text(`Servings : ${recipe.number_servings}`);
+                ingredients.text(`Ingredients: `)
+                for (var k=0; k < recipe.Ingredients.length; k++) {
+                    console.log(recipe.Ingredients[k]);
+                    // ingredients.text(recipe.Ingredients[k].ingredients);
+                    var newLi = $("<li>");
+                    newLi.append(recipe.Ingredients[k].ingredient);
+                    ingredientsList.append(newLi);
+                };
+
+                // a for loop for ingredients
+                instructions.text(`Instructions: ${recipe.prep_instruction}`);
             }
         }
     })
