@@ -29,3 +29,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 });
+
+
+
+// random joke API
+var apiKey = "f9c1c025cdc4430e8a6c924cc8e254ea";
+var queryURL = `https://api.spoonacular.com/food/jokes/random?apiKey=${apiKey}`
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function(response){
+    console.log(response.text);
+    var joke = response.text;
+    $("#randomJoke").text(joke)
+})
