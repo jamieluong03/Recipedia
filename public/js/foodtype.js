@@ -10,9 +10,17 @@ var prepTime = $("#prepTime");
 var servings = $("#servings");
 var ingredients = $("#ingredients");
 var instructions = $("#instructions");
-var ingredientsList = $(".ingredients-list")
+var ingredientsList = $(".ingredients-list");
+var imgDiv = $("#insertImg");
 
+// api for image
+// var API = "14104502-4c53e5529f6809b17c843d2ad";
+// var queryURL = `https://pixabay.com/api/?key=${API}&q=lobster&category=food`;
+
+// variable library
 var typeName;
+// var recipe_title;
+// var imgURL;
 
 var searchCuisine = function() {
     var searchResult = userInput.val().trim();
@@ -22,7 +30,8 @@ var searchCuisine = function() {
 };
 
 var renderTypes = function() {
-    $('ul').empty();
+    // $('ul').empty();
+    menuList.empty();
 
     showCuisine.text(typeName);
 
@@ -42,6 +51,7 @@ var renderTypes = function() {
 
 var renderRecipe = function() {
     recipeName.empty();
+    imgDiv.empty();
     difficulty.empty();
     type.empty();
     prepTime.empty();
@@ -51,6 +61,10 @@ var renderRecipe = function() {
 
     var selectedRecipe = $(this).attr("data-name");
     console.log(selectedRecipe);
+    recipe_title = selectedRecipe
+    recipe_title = recipe_title.replace(/\s/g, '').toLowerCase();
+    console.log(recipe_title);
+
 
     $("#recipeDiv").addClass("box");
     $.get("/api/recipes", function(data) {
@@ -59,6 +73,11 @@ var renderRecipe = function() {
             var recipe = data[i];
             if (recipe.recipe_name === selectedRecipe) {
                 recipeName.text(recipe.recipe_name);
+
+                    var addImg = $("<img>");
+                    addImg.attr("src", recipe.image_url);
+                    imgDiv.append(addImg);
+
                 difficulty.text(`Difficulty: ${recipe.recipe_difficulty}`);
                 type.text(`Type: ${recipe.food_type}`);
                 prepTime.text(`Prep Time: ${recipe.prep_time}`);
@@ -74,24 +93,25 @@ var renderRecipe = function() {
 
                 // a for loop for ingredients
                 instructions.text(`Instructions: ${recipe.prep_instruction}`);
-            }
-        }
-    })
-}
+        
+            };
+        };
+    });
+};
 
-// // api to get food image
-// var API = "14104502-4c53e5529f6809b17c843d2ad";
-// var recipe_title = req.body.recipe_name;
-// var queryURL = `https://pixabay.com/api/?key=${API}&q=${recipe_title}&category=food`;
 
-// $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).then(function(response){
-//     console.log(response);
-//     var imgURL = response.hits[0].largeImageURL;
-//     console.log(imgURL);
-//     console.log(response.hits[0].tags);
+// var getImage = function() {
+
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET"
+//     }).then(function(response){
+//         console.log(response);
+//         imgURL = response.hits[0].largeImageURL;
+//         console.log(imgURL);
+//     });
+// };
+
 
 
 searchBtn.on("click", searchCuisine);
