@@ -6,23 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-<<<<<<< HEAD
-    
-   
-   
-   
-   
-   
-   
-   
-   
-   
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>   
    <style>
-=======
-    <script type="text/javascript" src="js/add.js"></script>
-    <style>
->>>>>>> origin
         #addIngrBtn {
             border: 0;
         }
@@ -34,25 +19,36 @@
         #recipeForm {
             width: 600px;
         }
+
+        .is-info {
+            color: black;
+            font-size: 20px;
+        }
+
+        .level {
+            background-color: white;
+            width: 100%;
+        }
+        
+        html {
+            background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1862&q=80");
+        }
     </style>
   </head>
   <body>
   <section class="section">
     <div class="container">
             <nav class="level">
-                    <p class="level-item has-text-centered">
-                      <a class="link is-info">Home</a>
-                    </p>
-                    <p class="level-item has-text-centered">
-                      <a class="link is-info">View All Recipes</a>
-                    </p>
-                    <p class="level-item has-text-centered">
-                        <img src="./image/title.png" alt="" style="height: 90px;">
-                    </p>
-                    <p class="level-item has-text-centered">
-                      <a class="link is-info"></a>
-                    </p>
-                  </nav>
+                <p class="level-item has-text-centered">
+                    <img src="./image/title.png" alt="" style="height: 90px;">
+                </p>
+                <p class="level-item has-text-centered">
+                  <a class="link is-info" href="/">Home</a>
+                </p>
+                <p class="level-item has-text-centered">
+                  <a class="link is-info" href="/foodType">Find a Recipe</a>
+                </p>
+            </nav>
 
                   
         <div class="card"  id="recipeForm">
@@ -95,7 +91,7 @@
                   <div class="field">
                     <label class="label">Preparation Time</label>
                     <div class="control">
-                      <input class="input prepTime" type="text" placeholder="Text input">
+                      <input class="input prepTime" type="text" placeholder="How long will I take to finish?">
                     </div>
                   </div>
 
@@ -133,7 +129,7 @@
                   
                   <div class="field is-grouped">
                     <div class="control">
-                      <button class="button is-link submit">Submit</button>
+                      <button class="button is-link submit">Create Me!</button>
                     </div>
                   </div>
             </div>
