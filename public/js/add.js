@@ -29,6 +29,7 @@ function saveRecipe() {
     // package up inputs into an object new recipe
     // then we post it to a server
 }
+
 // Methods & Function Cals
 document.addEventListener("DOMContentLoaded", function() {
 
