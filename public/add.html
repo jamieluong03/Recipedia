@@ -7,8 +7,17 @@
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script type="text/javascript" src="js/add.js"></script>
-    <style>
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <style>
         #addIngrBtn {
             border: 0;
         }
@@ -46,14 +55,14 @@
                 <div class="field">
                     <label class="label">Recipe Name</label>
                     <div class="control">
-                      <input class="input recipeName" type="text" placeholder="What are we making?">
+                      <input id="recipeName" type="text" placeholder="What are we making?">
                     </div>
                   </div>
                   
                   <div class="field">
                     <label class="label">Show-off your dish!</label>
                     <div class="control">
-                      <input class="input dishImage" type="text" placeholder="Place image url here">
+                      <input id="dishImage" type="text" placeholder="Place image url here">
                     </div>
                   </div>
                 
@@ -102,14 +111,12 @@
 
                   <div class="field">
                     <label class="label">Ingredients</label>
-                    <div id="dynamicInput">
-                      Ingredient 1 1<br><input type="text" name="myInputs[]">
-                 </div>
-                 <input type="button" value="Add another Ingredient" onClick="addInput('dynamicInput');">
-                    <div class="control">
-                      <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
-                    </div>
-                    <button class="button" id="addIngrBtn"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
+                    <div  id="ingredients">
+                      <div class="control" data-id="0">
+                        <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
+                      </div>
+                  </div>
+                    <button class="button" value="Add another text input" id="dynamicInput"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
                   </div>
                   
                   <div class="field">
@@ -121,7 +128,7 @@
                   
                   <div class="field is-grouped">
                     <div class="control">
-                      <button class="button is-link submit">Submit</button>
+                      <button class="button is-link submit" id="submit">Submit</button>
                     </div>
                   </div>
             </div>
@@ -129,6 +136,6 @@
     </div>
   </section>
 
-  <script href="./js/add.js"></script>
+  <script src="./js/add.js"></script>
   </body>
 </html>
