@@ -51,17 +51,18 @@
         <div class="column is-three-fifths">
           <div class="card" id="recipeForm">
             <div class="card-content">
+              <form action="" method="POST" role="form"></form>
               <div class="field">
                 <label class="label">Recipe Name</label>
                 <div class="control">
-                  <input class="input recipeName" type="text" placeholder="What are we making?">
+                    <input class="input" id="recipeName" type="text" placeholder="What are we making?">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Show-off your dish!</label>
                 <div class="control">
-                  <input class="input dishImage" type="text" placeholder="Place image url here">
+                    <input class="input" id="dishImage" type="text" placeholder="Place image url here">
                 </div>
               </div>
 
@@ -75,14 +76,14 @@
               <div class="field">
                 <label class="label">Category</label>
                 <div class="control">
-                  <input class="input foodType" type="text" placeholder="eg. Italian">
+                    <input class="input" id="category" type="text" placeholder="eg. Italian">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Preparation Time</label>
                 <div class="control">
-                  <input class="input prepTime" type="text" placeholder="How long will I take to finish?">
+                    <input id="prepTime" class="input" type="text" placeholder="How long will I take to finsih?">
                 </div>
               </div>
 
@@ -96,10 +97,11 @@
               <div class="field">
                 <label class="label">Ingredients</label>
                 <div id="ingredients">
-                  <div class="control" data-id="0">
                     <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
                   </div>
                 </div>
+
+                <div>
                 <button class="button" value="Add another text input" id="dynamicInput"><i class="fas fa-plus-circle"></i>
                   Add Ingredient</button>
               </div>
@@ -107,10 +109,11 @@
               <div class="field">
                 <label class="label">Preparation Instructions</label>
                 <div class="control">
-                  <textarea class="textarea prepInstruc"
-                    placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
+                    <textarea class="textarea" id="prepInstruc" placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
                 </div>
               </div>
+
+            </form>
 
               <div class="field is-grouped">
                 <div class="control">
