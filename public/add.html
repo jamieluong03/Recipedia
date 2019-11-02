@@ -1,142 +1,133 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>   
-   <style>
-        #addIngrBtn {
-            border: 0;
-        }
 
-        .fa-plus-circle {
-            margin-right: 5px;
-        }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipedia</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <style>
+    #addIngrBtn {
+      border: 0;
+    }
 
-        #recipeForm {
-            width: 600px;
-        }
+    .fa-plus-circle {
+      margin-right: 5px;
+    }
 
-        .is-info {
-            color: black;
-            font-size: 20px;
-        }
+    #recipeForm {
+      width: 600px;
+    }
 
-        .level {
-            background-color: white;
-            width: 100%;
-        }
-        
-        html {
-            background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1862&q=80");
-        }
-    </style>
-  </head>
-  <body>
+    .is-info {
+      color: black;
+      font-size: 20px;
+    }
+
+    .level {
+      background-color: white;
+      width: 100%;
+    }
+
+    html {
+      background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1862&q=80");
+    }
+  </style>
+</head>
+
+<body>
   <section class="section">
     <div class="container">
-            <nav class="level">
-                <p class="level-item has-text-centered">
-                    <img src="./image/title.png" alt="" style="height: 90px;">
-                </p>
-                <p class="level-item has-text-centered">
-                  <a class="link is-info" href="/">Home</a>
-                </p>
-                <p class="level-item has-text-centered">
-                  <a class="link is-info" href="/foodType">Find a Recipe</a>
-                </p>
-            </nav>
+      <nav class="level">
+        <p class="level-item has-text-centered">
+          <img src="./image/title.png" alt="" style="height: 90px;">
+        </p>
+        <p class="level-item has-text-centered">
+          <a class="link is-info" href="/">Home</a>
+        </p>
+        <p class="level-item has-text-centered">
+          <a class="link is-info" href="/foodType">Find a Recipe</a>
+        </p>
+      </nav>
 
-                  
-        <div class="card"  id="recipeForm">
-            <div class="card-content">
-                <div class="field">
-                    <label class="label">Recipe Name</label>
-                    <div class="control">
-                      <input class="input recipeName" type="text" placeholder="What are we making?">
-                    </div>
-                  </div>
-                  
-                  <div class="field">
-                    <label class="label">Show-off your dish!</label>
-                    <div class="control">
-                      <input class="input dishImage" type="text" placeholder="Place image url here">
-                    </div>
-                  </div>
-                
-                  <div class="field">
-                    <label class="label">Difficulty Level</label>
-                    <div class="control">
-                      <div class="select skill">
-                        <select>
-                          <option>Easy</option>
-                          <option>Intermediate</option>
-                          <option>Hard</option>
-                          <option>Expert</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="field">
-                    <label class="label">Category</label>
-                    <div class="control">
-                      <input class="input foodType" type="text" placeholder="eg. Italian">
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label class="label">Preparation Time</label>
-                    <div class="control">
-                      <input class="input prepTime" type="text" placeholder="How long will I take to finish?">
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label class="label">Number of Servings</label>
-                    <div class="control">
-                      <div class="select serving">
-                        <select>
-                          <option>1-2</option>
-                          <option>3-4</option>
-                          <option>5-6</option>
-                          <option>7-8</option>
-                          <option>9-10</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label class="label">Ingredients</label>
-                    <div  id="ingredients">
-                      <div class="control" data-id="0">
-                        <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
-                      </div>
-                  </div>
-                    <button class="button" value="Add another text input" id="dynamicInput"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
-                  </div>
-                  
-                  <div class="field">
-                    <label class="label">Preparation Instructions</label>
-                    <div class="control">
-                      <textarea class="textarea prepInstruc" placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
-                    </div>
-                  </div>
-                  
-                  <div class="field is-grouped">
-                    <div class="control">
-                      <button class="button is-link submit">Create Me!</button>
-                    </div>
-                  </div>
+      <div class="card" id="recipeForm">
+        <div class="card-content">
+          <div class="field">
+            <label class="label">Recipe Name</label>
+            <div class="control">
+              <input class="input recipeName" type="text" placeholder="What are we making?">
             </div>
           </div>
+
+          <div class="field">
+            <label class="label">Show-off your dish!</label>
+            <div class="control">
+              <input class="input dishImage" type="text" placeholder="Place image url here">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Skill Level!</label>
+            <div class="control">
+              <input class="input" id="selectSkill" type="text" placeholder="Easy, Medium, Hard, Expert">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Category</label>
+            <div class="control">
+              <input class="input foodType" type="text" placeholder="eg. Italian">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Preparation Time</label>
+            <div class="control">
+              <input class="input prepTime" type="text" placeholder="How long will I take to finish?">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Servings</label>
+            <div class="control">
+              <input class="input" id="selectServing" type="number" placeholder="12">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Ingredients</label>
+            <div id="ingredients">
+              <div class="control" data-id="0">
+                <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
+              </div>
+            </div>
+            <button class="button" value="Add another text input" id="dynamicInput"><i class="fas fa-plus-circle"></i>
+              Add Ingredient</button>
+          </div>
+
+          <div class="field">
+            <label class="label">Preparation Instructions</label>
+            <div class="control">
+              <textarea class="textarea prepInstruc"
+                placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link submit" id="submit">Create Me!</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
   <script src="./js/add.js"></script>
-  </body>
+</body>
+
 </html>
