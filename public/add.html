@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>   
    <style>
         #addIngrBtn {
             border: 0;
@@ -56,51 +56,66 @@
                 <div class="field">
                     <label class="label">Recipe Name</label>
                     <div class="control">
-                      <input class="input" id="recipeName" type="text" placeholder="What are we making?">
+                      <input class="input recipeName" type="text" placeholder="What are we making?">
                     </div>
                   </div>
                   
                   <div class="field">
                     <label class="label">Show-off your dish!</label>
                     <div class="control">
-                      <input class="input" id="dishImage" type="text" placeholder="Place image url here">
+                      <input class="input dishImage" type="text" placeholder="Place image url here">
                     </div>
                   </div>
                 
                   <div class="field">
-                    <label class="label">Skill Level!</label>
+                    <label class="label">Difficulty Level</label>
                     <div class="control">
-                      <input class="input" id="selectSkill" type="text" placeholder="Easy, Medium, Hard, Expert">
+                      <div class="select skill">
+                        <select>
+                          <option>Easy</option>
+                          <option>Intermediate</option>
+                          <option>Hard</option>
+                          <option>Expert</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
 
                   <div class="field">
                     <label class="label">Category</label>
                     <div class="control">
-                      <input class="input" id="category" type="text" placeholder="eg. Italian">
+                      <input class="input foodType" type="text" placeholder="eg. Italian">
                     </div>
                   </div>
 
                   <div class="field">
                     <label class="label">Preparation Time</label>
                     <div class="control">
-                      <input id="prepTime" class="input" type="text" placeholder="How long will I take to finish?">
+                      <input class="input prepTime" type="text" placeholder="How long will I take to finish?">
                     </div>
                   </div>
 
                   <div class="field">
-                    <label class="label">Servings</label>
+                    <label class="label">Number of Servings</label>
                     <div class="control">
-                      <input class="input" id="selectServing" type="number" placeholder="12">
+                      <div class="select serving">
+                        <select>
+                          <option>1-2</option>
+                          <option>3-4</option>
+                          <option>5-6</option>
+                          <option>7-8</option>
+                          <option>9-10</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
 
                   <div class="field">
                     <label class="label">Ingredients</label>
-                    <div id="ingredients">
-                    
+                    <div  id="ingredients">
+                      <div class="control" data-id="0">
                         <input class="input ingredient" type="text" placeholder="One Ingredient Per Line">
-                      
+                      </div>
                   </div>
                     <button class="button" value="Add another text input" id="dynamicInput"><i class="fas fa-plus-circle"></i>  Add Ingredient</button>
                   </div>
@@ -108,22 +123,20 @@
                   <div class="field">
                     <label class="label">Preparation Instructions</label>
                     <div class="control">
-                      <textarea class="textarea" id="prepInstruc" placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
+                      <textarea class="textarea prepInstruc" placeholder="Explain here how to put all of these delicious ingredients into a yummy dish!"></textarea>
                     </div>
                   </div>
                   
                   <div class="field is-grouped">
-                    <div class="control"><button class="button is-link submit" id="submit>Create Me!</button>
+                    <div class="control">
+                      <button class="button is-link submit">Create Me!</button>
                     </div>
                   </div>
             </div>
           </div>
     </div>
   </section>
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+
   <script src="./js/add.js"></script>
   </body>
 </html>
