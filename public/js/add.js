@@ -1,4 +1,4 @@
-console.log("linked");
+
 // Global Variables
 var counter = 1;
 var limit = 15;
@@ -27,6 +27,7 @@ function saveRecipe() {
     // function will post customers recipe in our database
     // gather form inputs
     var recipe_name = document.getElementById("recipeName").value;
+    console.log(recipe_name);
     var image_url = document.getElementById("dishImage").value;
     var recipe_difficulty = document.getElementById("selectSkill").value;
     var food_type = document.getElementById("category").value;
@@ -34,6 +35,7 @@ function saveRecipe() {
     var number_servings = document.getElementById("selectServing").value;
     var prep_instruction = document.getElementById("prepInstruc").value;
     // TODO: WILL NEED TO POST INSTRUCTIONS
+    
     let ingredients = []
     let ingredientList = document.querySelectorAll(".ingredient");
     for (i = 0; i < ingredientList.length; i++) {
@@ -75,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         
         if (event.target.getAttribute("id") === "submit") {
+            prompt("Thank you for making our site a little more delicious!")
             saveRecipe();
             
         }
