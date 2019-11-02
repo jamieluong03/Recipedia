@@ -27,7 +27,6 @@ function saveRecipe() {
     // function will post customers recipe in our database
     // gather form inputs
     var recipe_name = document.getElementById("recipeName").value;
-    console.log(recipe_name);
     var image_url = document.getElementById("dishImage").value;
     var recipe_difficulty = document.getElementById("selectSkill").value;
     var food_type = document.getElementById("category").value;
@@ -41,7 +40,7 @@ function saveRecipe() {
     for (i = 0; i < ingredientList.length; i++) {
         ingredients.push(ingredientList[i].value)
     }
-
+    console.log(ingredients)
     // package up inputs into an object new recipe
     const newRecipe = {
           recipe_name,
@@ -57,10 +56,15 @@ function saveRecipe() {
         url: "/api/recipes",
         method: "POST",
         data: newRecipe
-    }).then(response => console.log(response))
+    }).then(response => console.log(response));
       
 
     // then we post it to a server
+    // $.ajax({
+    //     url: "/api/recipes/:id/ingredients",
+    //     method: "POST",
+    //     data: ingredients
+    // }).then(response => console.log(response));
 }
     
 
