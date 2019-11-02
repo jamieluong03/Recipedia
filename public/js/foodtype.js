@@ -13,14 +13,8 @@ var instructions = $("#instructions");
 var ingredientsList = $(".ingredients-list");
 var imgDiv = $("#insertImg");
 
-// api for image
-// var API = "14104502-4c53e5529f6809b17c843d2ad";
-// var queryURL = `https://pixabay.com/api/?key=${API}&q=lobster&category=food`;
-
-// variable library
 var typeName;
-// var recipe_title;
-// var imgURL;
+
 
 var searchCuisine = function() {
     var searchResult = userInput.val().trim();
@@ -30,7 +24,6 @@ var searchCuisine = function() {
 };
 
 var renderTypes = function() {
-    // $('ul').empty();
     menuList.empty();
 
     showCuisine.text(typeName);
@@ -61,9 +54,6 @@ var renderRecipe = function() {
 
     var selectedRecipe = $(this).attr("data-name");
     console.log(selectedRecipe);
-    recipe_title = selectedRecipe
-    recipe_title = recipe_title.replace(/\s/g, '').toLowerCase();
-    console.log(recipe_title);
 
 
     $("#recipeDiv").addClass("box");
@@ -85,33 +75,17 @@ var renderRecipe = function() {
                 ingredients.text(`Ingredients: `)
                 for (var k=0; k < recipe.Ingredients.length; k++) {
                     console.log(recipe.Ingredients[k]);
-                    // ingredients.text(recipe.Ingredients[k].ingredients);
                     var newLi = $("<li>");
                     newLi.append(recipe.Ingredients[k].ingredient);
                     ingredientsList.append(newLi);
                 };
 
-                // a for loop for ingredients
                 instructions.text(`Instructions: ${recipe.prep_instruction}`);
         
             };
         };
     });
 };
-
-
-// var getImage = function() {
-
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).then(function(response){
-//         console.log(response);
-//         imgURL = response.hits[0].largeImageURL;
-//         console.log(imgURL);
-//     });
-// };
-
 
 
 searchBtn.on("click", searchCuisine);
