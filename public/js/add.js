@@ -32,6 +32,7 @@ function saveRecipe() {
     
     
     console.log(ingredients)
+    
     // package up inputs into an object new recipe
     const newRecipe = {
           recipe_name,
@@ -47,7 +48,8 @@ function saveRecipe() {
         url: "/api/recipes",
         method: "POST",
         data: newRecipe
-    }).then(response => console.log(response));
+    }).then(response => console.log(response))
+    console.log(newRecipe.id);
       
 
     // then we post it to a server
@@ -62,7 +64,8 @@ function saveIngredients() {
     }
     console.log(ingredients)
 
-    $.post("ajax/api/recipes/:id/ingredients", {'ingredients': ingredients})
+    $.post("/api/recipes/:id/ingredients", ingredients)
+        .then(response => console.log(response))
     // $.ajax({
     //     url: "/api/recipes/:id/ingredients",
     //     method: "POST",
