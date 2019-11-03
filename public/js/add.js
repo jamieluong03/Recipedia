@@ -2,6 +2,7 @@
 // Global Variables
 var counter = 1;
 var limit = 15;
+var RecipeId;
 
 // Function Definitions
 function addInput() {
@@ -31,7 +32,7 @@ function saveRecipe() {
     // TODO: WILL NEED TO POST INSTRUCTIONS
     
     
-    console.log(ingredients)
+    // console.log(ingredients)
     // package up inputs into an object new recipe
     const newRecipe = {
           recipe_name,
@@ -41,17 +42,19 @@ function saveRecipe() {
           prep_time,
           number_servings,
           prep_instruction
-    }
-    console.log(newRecipe);
+    };
+    
+    // console.log(newRecipe);
     $.ajax({
         url: "/api/recipes",
         method: "POST",
         data: newRecipe
-    }).then(response => console.log(response));
+    }).then(function(response){
+        console.log(response.id);
+        RecipeId = response.id;
+    });
       
-
     // then we post it to a server
-    
 }
 
 function saveIngredients() {
@@ -60,10 +63,12 @@ function saveIngredients() {
     for (i = 0; i < ingredientList.length; i++) {
         ingredients.push(ingredientList[i].value)
     }
-    console.log(ingredients)
+    // console.log(ingredients)
+    console.log('recipe.id', RecipeId);
 
-    $.post("/api/recipes/:id/ingredients", {'ingredients': ingredients})
+    $.post("/api/recipes/:id/ingredients", {'ingredients': ingredients}, {RecipeId:RecipeId})
     .then(response => console.log(response));
+    
 }
 
 // Methods & Function Calls
