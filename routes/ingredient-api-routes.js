@@ -6,7 +6,7 @@ module.exports = function(app) {
 
 // get /api/recipes/:id/ingredients/
 //      get all ingredients for recipe
-    app.get("api/recipes/:id/ingredients/", function (req, res) {
+    app.get("/api/recipes/:id/ingredients/", function (req, res) {
         db.Ingredients.findAll({
             where: {
                 id: req.params.id
@@ -14,14 +14,26 @@ module.exports = function(app) {
             include: [db.Recipe]
         }).then(function(data){
             res.json(data)
-        });
+        }).catch(function(error){
+            console.log(error);
+        })
     });
 
 // post /api/recipes/:id/ingredients
 //      add new ingredient
     app.post("/api/recipes/:id/ingredients", function(req, res){
-        db.Ingredients.create(req.body).then(function(dbIngredients){
-            res.json(dbIngredients);
+        // console.log('in post ingredients route')
+        console.log(req.body.ingredients);
+        let promises = 
+            req.body.ingredients.map(ingredient =>
+            db.Ingredients.create({ingredient:ingredient},
+                {RecipeId:req.params.id}));
+
+            Promise.all(promises).then(arrayOfValues => {
+                console.log(arrayOfValues);
+                res.json(arrayOfValues)
+        }).catch(function(error){
+            console.log(error);
         });
     });
 
