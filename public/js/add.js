@@ -62,12 +62,8 @@ function saveIngredients() {
     }
     console.log(ingredients)
 
-    $.post("ajax/api/recipes/:id/ingredients", {'ingredients': ingredients})
-    // $.ajax({
-    //     url: "/api/recipes/:id/ingredients",
-    //     method: "POST",
-    //     data: ingredients
-    // }).then(response => console.log(response));
+    $.post("/api/recipes/:id/ingredients", {'ingredients': ingredients})
+    .then(response => console.log(response));
 }
 
 // Methods & Function Calls
