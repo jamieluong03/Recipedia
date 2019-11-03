@@ -8,11 +8,6 @@ function addInput() {
     if (counter == limit) {
         alert("You have reached the limit of adding " + counter + " inputs");
     } else {
-        // var newdiv = document.createElement('div');
-        // newdiv.setAttribute("class", "ingredient");
-        // newdiv.setAttribute("data-id", counter);
-        // newdiv.innerHTML = `<input class="input" type="text" placeholder="One Ingredient Per Line">`;
-        //  newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
         var input = document.createElement('INPUT');
         input.setAttribute("class", "input ingredient");
         input.setAttribute("type", "text");
@@ -35,11 +30,7 @@ function saveRecipe() {
     var prep_instruction = document.getElementById("prepInstruc").value;
     // TODO: WILL NEED TO POST INSTRUCTIONS
     
-    let ingredients = []
-    let ingredientList = document.querySelectorAll(".ingredient");
-    for (i = 0; i < ingredientList.length; i++) {
-        ingredients.push(ingredientList[i].value)
-    }
+    
     console.log(ingredients)
     // package up inputs into an object new recipe
     const newRecipe = {
@@ -60,17 +51,26 @@ function saveRecipe() {
       
 
     // then we post it to a server
+    
+}
+
+function saveIngredients() {
+    let ingredients = []
+    let ingredientList = document.querySelectorAll(".ingredient");
+    for (i = 0; i < ingredientList.length; i++) {
+        ingredients.push(ingredientList[i].value)
+    }
+    console.log(ingredients)
+
+    $.post("ajax/api/recipes/:id/ingredients", {'ingredients': ingredients})
     // $.ajax({
     //     url: "/api/recipes/:id/ingredients",
     //     method: "POST",
     //     data: ingredients
     // }).then(response => console.log(response));
 }
-    
 
-    
-
-// Methods & Function Cals
+// Methods & Function Calls
 document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", event => {
@@ -81,8 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         
         if (event.target.getAttribute("id") === "submit") {
-            prompt("Thank you for making our site a little more delicious!")
-            saveRecipe();
+            alert("Thank you for making our site a little more delicious!")
+            saveRecipe()
+            saveIngredients();
             
         }
         // if (recipeName.length > 50) {
