@@ -22,18 +22,20 @@ module.exports = function(app) {
 // post /api/recipes/:id/ingredients
 //      add new ingredient
     app.post("/api/recipes/:id/ingredients", function(req, res){
-        // console.log('in post ingredients route')
-        console.log(req.body.ingredients);
         let promises = 
             req.body.ingredients.map(ingredient =>
-            db.Ingredients.create({ingredient:ingredient},
-                {RecipeId:req.params.id}));
+            db.Ingredients.create({
+                ingredient:ingredient, 
+                RecipeId:req.params.id
+            }));
 
-            Promise.all(promises).then(arrayOfValues => {
-                console.log(arrayOfValues);
-                res.json(arrayOfValues)
+            Promise.all(promises).then(responsesArray => {
+                res.json(responsesArray)
         }).catch(function(error){
             console.log(error);
+            res.status(500).send({
+                error: error
+            });
         });
     });
 

@@ -3,6 +3,7 @@
 var counter = 1;
 var limit = 15;
 var RecipeId;
+console.log(RecipeId);
 
 // Function Definitions
 function addInput() {
@@ -52,10 +53,12 @@ function saveRecipe() {
     }).then(function(response){
         console.log(response.id);
         RecipeId = response.id;
+        console.log(RecipeId);
     });
       
     // then we post it to a server
 }
+console.log(RecipeId);
 
 function saveIngredients() {
     let ingredients = []
@@ -66,7 +69,10 @@ function saveIngredients() {
     // console.log(ingredients)
     console.log('recipe.id', RecipeId);
 
-    $.post("/api/recipes/:id/ingredients", {'ingredients': ingredients}, {RecipeId:RecipeId})
+    $.post(`/api/recipes/${RecipeId}/ingredients`, {
+        'ingredients': ingredients,
+        RecipeId:RecipeId 
+        })
     .then(response => console.log(response));
     
 }
@@ -84,8 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.getAttribute("id") === "submit") {
             alert("Thank you for making our site a little more delicious!")
             saveRecipe()
-            saveIngredients();
-            
+            setTimeout(() => {
+                saveIngredients();                
+            },100);
         }
         // if (recipeName.length > 50) {
         //     alert("The name may have no more than 50 characters");
