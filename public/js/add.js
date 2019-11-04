@@ -31,8 +31,8 @@ function saveRecipe() {
     var number_servings = document.getElementById("selectServing").value;
     var prep_instruction = document.getElementById("prepInstruc").value;
     // TODO: WILL NEED TO POST INSTRUCTIONS
-    
-    
+
+
     // console.log(ingredients)
     // package up inputs into an object new recipe
     const newRecipe = {
@@ -44,37 +44,28 @@ function saveRecipe() {
           number_servings,
           prep_instruction
     };
-    
-    // console.log(newRecipe);
-    $.ajax({
+
+
+    return $.ajax({
         url: "/api/recipes",
         method: "POST",
         data: newRecipe
-    }).then(function(response){
-        console.log(response.id);
-        RecipeId = response.id;
-        console.log(RecipeId);
     });
-      
+
     // then we post it to a server
 }
 console.log(RecipeId);
 
-function saveIngredients() {
+function saveIngredients(recipeId) {
     let ingredients = []
     let ingredientList = document.querySelectorAll(".ingredient");
     for (i = 0; i < ingredientList.length; i++) {
         ingredients.push(ingredientList[i].value)
     }
     // console.log(ingredients)
-    console.log('recipe.id', RecipeId);
+    console.log('recipe.id', recipeId);
 
-    $.post(`/api/recipes/${RecipeId}/ingredients`, {
-        'ingredients': ingredients,
-        RecipeId:RecipeId 
-        })
-    .then(response => console.log(response));
-    
+    return $.post(`/api/recipes/${recipeId}/ingredients`, {'ingredients': ingredients});
 }
 
 // Methods & Function Calls
@@ -82,17 +73,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", event => {
         console.log("clicked")
-        
+
         if (event.target.getAttribute("id") === "dynamicInput") {
             addInput();
         }
-        
+
         if (event.target.getAttribute("id") === "submit") {
+            //
+            // using alerts in project not allowed
+            //
             alert("Thank you for making our site a little more delicious!")
-            saveRecipe()
-            setTimeout(() => {
-                saveIngredients();                
-            },100);
+            saveRecipe().then(response => {
+                return saveIngredients(response.id);
+            }).then(response => {
+
+            }).catch(error => {
+                console.log(error);
+            });
         }
         // if (recipeName.length > 50) {
         //     alert("The name may have no more than 50 characters");
@@ -106,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //     alert("The name may have no more than 50 characters");
         //     submitOK = "false";
         // }
-        // if (category.length > 5) 
+        // if (category.length > 5)
         // {
         //     alert("Seriously your amount is of hours is unrealistic and more then 5 characters");
         //     submitOK = "false";
