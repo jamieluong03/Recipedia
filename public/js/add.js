@@ -86,34 +86,14 @@ document.addEventListener("DOMContentLoaded", function () {
             saveRecipe().then(response => {
                 return saveIngredients(response.id);
             }).then(response => {
+                $(".input").val("");
+                $(".textarea").val("");
 
             }).catch(error => {
                 console.log(error);
             });
         }
-        // if (recipeName.length > 50) {
-        //     alert("The name may have no more than 50 characters");
-        //     submitOK = "false";
-        // }
-        // if (category.length > 50) {
-        //     alert("The name may have no more than 50 characters");
-        //     submitOK = "false";
-        // }
-        // if (category.length > 50) {
-        //     alert("The name may have no more than 50 characters");
-        //     submitOK = "false";
-        // }
-        // if (category.length > 5)
-        // {
-        //     alert("Seriously your amount is of hours is unrealistic and more then 5 characters");
-        //     submitOK = "false";
-        // }
-
-
-
-    })
-
-
+    });
 });
 
 
