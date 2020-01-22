@@ -6,7 +6,7 @@ This app is for users who are inventive and love to cook. Users can share their 
 
 ## Technologies Used
 * HTML, CSS, Express.js, MySQL, Sequelize, Bulma (Framework), Javascript, jQuery, REST API, AJAX
-
+* API from Spoonacular
 
 ## Link
 The app is deployed on Heroku.
