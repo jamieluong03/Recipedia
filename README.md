@@ -1,6 +1,6 @@
 # Recipedia
 
-In this app, users who are inventive and love to cook could share their creative recipes by adding it to the database and recalling the recipes when needed. The users are able to add the Recipe Name, Cuisine, Preparation Time, Ingredients, Servings, Instructions, and an image of their picture that's uploaded online! When recalling recipes, they are sorted by the type of cuisine it belongs to, such as American, Italian, Chinese, etc.
+This app is for users who are inventive and love to cook. Users can share their creative, home-made recipes by submitting a form that asks for the Recipe Name, Cuisine, Preparation Time, Ingredients, Servings, Instructions, and an image of their picture that's uploaded online! Each of the recipes are sorted by their cuisine type. By searching for a specific cuisine, the database can pull up all the submitted recipes that belong to that cuisine.
 
 
 ## Technologies Used
@@ -8,6 +8,7 @@ In this app, users who are inventive and love to cook could share their creative
 
 
 ## Link
+The app is deployed on Heroku.
 * https://warm-shore-77309.herokuapp.com
 
 
