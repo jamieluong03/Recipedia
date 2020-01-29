@@ -5,7 +5,7 @@ This app is for users who are inventive and love to cook. Users can share their 
 <img src="public/image/recipedia.png">
 
 ## Technologies Used
-* HTML, CSS, Express.js, MySQL, Sequelize, Bulma (Framework), Javascript, jQuery, REST API, AJAX
+* HTML, Bulma/CSS, Express.js, MySQL, Sequelize, Javascript, jQuery, REST API, AJAX
 * API from Spoonacular
 
 ## Link
